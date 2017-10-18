@@ -2,38 +2,38 @@
 #include "Entity.h"
 
 Entity::Entity(bool isAlive)
-    : mVelocity()
-    , mIsAlive(isAlive)
+: mVelocity(),
+  mIsAlive(isAlive)
 {
 }
 
 void Entity::setVelocity(sf::Vector2f velocity)
 {
-    mVelocity = velocity;
+  mVelocity = velocity;
 }
 
 void Entity::setVelocity(float vx, float vy)
 {
-    mVelocity.x = vx;
-    mVelocity.y = vy;
+  mVelocity.x = vx;
+  mVelocity.y = vy;
 }
 
 sf::Vector2f Entity::getVelocity()
 {
-    return mVelocity;
+  return mVelocity;
 }
 
 void Entity::die()
 {
-    mIsAlive = false;
+  mIsAlive = false;
 }
 
 bool Entity::isDestroyed() const
 {
-    return !mIsAlive;
+  return !mIsAlive;
 }
 
 void Entity::updateCurrent(sf::Time dt)
 {
-    move(mVelocity * dt.asSeconds());
+  move(mVelocity * dt.asSeconds());
 }

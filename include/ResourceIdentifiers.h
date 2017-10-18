@@ -3,26 +3,26 @@
 
 // Forward declaration of SFML classes
 namespace sf {
-    class Texture;
-    class Font;
+  class Texture;
+  class Font;
 }
 
 namespace Textures {
-    enum ID
-    {
-        Background,
-        Bird,
-        PipeTop,
-        PipeBottom,
-    };
+  enum ID
+  {
+    Background,
+    Bird,
+    PipeTop,
+    PipeBottom,
+  };
 }
 
 namespace Fonts
 {
-    enum ID
-    {
-        Main,
-    };
+  enum ID
+  {
+    Main,
+  };
 }
 
 // Forward declaration and a few type definitions
