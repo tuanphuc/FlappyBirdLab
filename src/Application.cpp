@@ -11,7 +11,7 @@
 const sf::Time Application::TimePerFrame = sf::seconds(1.f/60.f);
 
 Application::Application()
-: mWindow(sf::VideoMode(500, 512), "FlappyBirdEvolution", sf::Style::Close),
+: mWindow(sf::VideoMode(500, 512), "FlappyBirdLab", sf::Style::Close),
   mTextures(),
   mFonts(),
   mPlayer(),
