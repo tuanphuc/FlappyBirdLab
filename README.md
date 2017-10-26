@@ -12,11 +12,10 @@ The game has to mode:
 
 ![learning_mode](https://github.com/tuanphuc/FlappyBirdLab/blob/master/gifs/recorded_learning.gif)
 
-# Requirements
-Install SFML (https://github.com/SFML/SFML)
-
 # Install
-This project is built with CMake. To compile:
+
+  -  First install SFML (https://github.com/SFML/SFML)
+  -  Then compile with cmake:
 ```
 git clone https://github.com/tuanphuc/FlappyBirdLab.git
 cd FlappyBirdLab
