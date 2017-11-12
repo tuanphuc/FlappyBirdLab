@@ -15,8 +15,7 @@ public:
     };
 
 public:
-    Pipe(Type type, const TextureHolder& textures, sf::Vector2f pos);
-    Pipe(Type type, const TextureHolder& textures, sf::Vector2f pos, bool dir);
+    Pipe(Type type, const TextureHolder& textures, sf::Vector2f pos, sf::Vector2f velocity, bool dir);
     virtual unsigned int getCategory() const;
     virtual sf::FloatRect getBoundingRect() const;
     bool getStatus();

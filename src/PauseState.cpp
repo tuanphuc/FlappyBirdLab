@@ -36,7 +36,7 @@ void PauseState::draw()
     window.setView(window.getDefaultView());
 
     sf::RectangleShape backgroundShape;
-    backgroundShape.setFillColor(sf::Color(0, 0, 0, 200));
+    backgroundShape.setFillColor(sf::Color(0, 0, 0, 100));
     backgroundShape.setSize(window.getView().getSize());
 
     window.draw(backgroundShape);
@@ -53,19 +53,19 @@ bool PauseState::handleEvent(const sf::Event &event)
 {
     if(event.type != sf::Event::KeyPressed)
         return false;
-
     if(event.key.code == sf::Keyboard::Escape)
     {
-        // Escape pressed, remove itself to return to the game
         requestStackPop();
     }
-
     if(event.key.code == sf::Keyboard::BackSpace)
     {
-        // Backspace pressed, clear state and return to Menu
         requestStateClear();
         requestStackPush(States::Menu);
     }
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up)
+        return true;
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down)
+        return true;
 
     return false;
 }

@@ -15,23 +15,17 @@ Textures::ID toTextureID(Pipe::Type type)
     return Textures::PipeTop;
 }
 
-Pipe::Pipe(Type type, const TextureHolder &textures, sf::Vector2f pos)
+Pipe::Pipe(Type type, const TextureHolder &textures, sf::Vector2f position, sf::Vector2f velocity, bool dir)
     : Entity(true),
       mSprite(textures.get(toTextureID(type))),
       mType(type),
       isOut(false)
 {
-    move(pos);
-    setVelocity(-180.f, 0.f);
-}
-
-Pipe::Pipe(Type type, const TextureHolder &textures, sf::Vector2f pos, bool dir)
-    : Pipe(type, textures, pos)
-{
+    move(position);
     if(dir)
-        setVelocity(-180.f, 100.f);
+        setVelocity(velocity.x, velocity.y);
     else
-        setVelocity(-180.f, -100.f);
+        setVelocity(velocity.x, -velocity.y);
 }
 
 unsigned int Pipe::getCategory() const

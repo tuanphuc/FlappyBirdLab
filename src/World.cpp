@@ -6,6 +6,9 @@
 const float World::MIN_GAME_SPEED = 1.0;
 const float World::MAX_GAME_SPEED = 2.0;
 
+const float World::MIN_PILE_SPEED = 0;
+const float World::MAX_PILE_SPEED = 200;
+
 World::World(sf::RenderWindow& window, CommandQueue& commandQueue, unsigned int nBird)
     : mWindow(window),
       mWorldView(window.getDefaultView()),
@@ -19,6 +22,7 @@ World::World(sf::RenderWindow& window, CommandQueue& commandQueue, unsigned int 
       mDeltaBord(50.f),
       mPipeHole(120.f),
       mSpawnRate(0.f),
+      mPipeVelocity(sf::Vector2f(-180.f, 0.f)),
       mGameSpeed(MIN_GAME_SPEED)
 {
     loadTextures();
@@ -99,6 +103,18 @@ void World::speedDown()
         mGameSpeed -= 0.2;
 }
 
+void World::speedPipeUp()
+{
+    if(mPipeVelocity.y < MAX_PILE_SPEED)
+        mPipeVelocity.y += 10;
+}
+
+void World::speedPipeDown()
+{
+    if(mPipeVelocity.y > MIN_PILE_SPEED)
+        mPipeVelocity.y -= 10;
+}
+
 void World::loadTextures()
 {
     mTextures.load(Textures::Bird, "assets/bird.png");
@@ -150,20 +166,12 @@ void World::spawnHoles(sf::Time dt)
         double r = ((double) rand() / (RAND_MAX));
         int mHolePosition = (int) (r * (512 - mDeltaBord * 2 - mPipeHole) + mDeltaBord);
 
-        //*/
-        std::unique_ptr<Pipe> pipeTop(new Pipe(Pipe::PipeTop, mTextures, sf::Vector2f(1000.f, mHolePosition - 512.f)));
-        mSceneLayers[PipeLayer]->attachChild(std::move(pipeTop));
-        std::unique_ptr<Pipe> pipeBottom(new Pipe(Pipe::PipeBottom, mTextures, sf::Vector2f(1000.f, mHolePosition + mPipeHole)));
-        mSceneLayers[PipeLayer]->attachChild(std::move(pipeBottom));
-
-        /*/
         double d = ((double) rand() / (RAND_MAX));
         bool direction = (d >= 0.5) ;
-        std::unique_ptr<Pipe> pipeTop(new Pipe(Pipe::PipeTop, mTextures, sf::Vector2f(1000.f, mHolePosition - 512.f), direction));
+        std::unique_ptr<Pipe> pipeTop(new Pipe(Pipe::PipeTop, mTextures, sf::Vector2f(1000.f, mHolePosition - 512.f), mPipeVelocity, direction));
         mSceneLayers[PipeLayer]->attachChild(std::move(pipeTop));
-        std::unique_ptr<Pipe> pipeBottom(new Pipe(Pipe::PipeBottom, mTextures, sf::Vector2f(1000.f, mHolePosition + mPipeHole), direction));
+        std::unique_ptr<Pipe> pipeBottom(new Pipe(Pipe::PipeBottom, mTextures, sf::Vector2f(1000.f, mHolePosition + mPipeHole), mPipeVelocity, direction));
         mSceneLayers[PipeLayer]->attachChild(std::move(pipeBottom));
-        //*/
     }
 }
 

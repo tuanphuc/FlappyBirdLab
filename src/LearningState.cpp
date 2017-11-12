@@ -107,6 +107,10 @@ bool LearningState::handleEvent(const sf::Event &event)
         mWorld.speedUp();
     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down)
         mWorld.speedDown();
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Right)
+        mWorld.speedPipeUp();
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Left)
+        mWorld.speedPipeDown();
 
     return true;
 }

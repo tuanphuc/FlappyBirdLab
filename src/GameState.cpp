@@ -52,9 +52,16 @@ bool GameState::handleEvent(const sf::Event &event)
     CommandQueue& commands = mWorld.getCommandQueue();
     mPlayer.handleEvent(event, commands);
 
-    // Escape pressed, trigger the pause screen
     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
         requestStackPush(States::Pause);
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up)
+        mWorld.speedUp();
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down)
+        mWorld.speedDown();
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Right)
+        mWorld.speedPipeUp();
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Left)
+        mWorld.speedPipeDown();
 
     return true;
 }

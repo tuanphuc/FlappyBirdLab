@@ -43,6 +43,8 @@ public:
     std::array<SceneNode*, LayerCount>& getScene();
     void speedUp();
     void speedDown();
+    void speedPipeUp();
+    void speedPipeDown();
 
 private:
     void loadTextures();
@@ -65,10 +67,14 @@ private:
     float mBackgroundX;
     Background* mBackground;
     Bird* mBird;
+
+    static const float MIN_PILE_SPEED;
+    static const float MAX_PILE_SPEED;
     Pipe* mPipe;
     float mDeltaBord;
     float mPipeHole;
     float mSpawnRate;
+    sf::Vector2f mPipeVelocity;
 
     static const float MIN_GAME_SPEED;
     static const float MAX_GAME_SPEED;
