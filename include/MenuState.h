@@ -10,23 +10,23 @@
 class MenuState : public State
 {
 public:
-  MenuState(StateStack& stack, Context context);
+    MenuState(StateStack& stack, Context context);
 
-  virtual void			draw();
-  virtual bool			update(sf::Time dt);
-  virtual bool			handleEvent(const sf::Event& event);
-
-private:
-  enum OptionNames
-  {
-    Play,
-    Learning,
-    Exit,
-  };
+    virtual void			draw();
+    virtual bool			update(sf::Time dt);
+    virtual bool			handleEvent(const sf::Event& event);
 
 private:
-  sf::Sprite mBackgroundSprite;
-  GUI::Container mGUIContainer;
+    enum OptionNames
+    {
+        Play,
+        Learning,
+        Exit,
+    };
+
+private:
+    sf::Sprite mBackgroundSprite;
+    GUI::Container mGUIContainer;
 };
 
 #endif // MENUSTATE_H

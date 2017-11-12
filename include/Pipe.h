@@ -8,26 +8,29 @@
 class Pipe : public Entity
 {
 public:
-  enum Type
-  {
-    PipeTop,
-    PipeBottom,
-  };
+    enum Type
+    {
+        PipeTop,
+        PipeBottom,
+    };
 
 public:
-  Pipe(Type type, const TextureHolder& textures, sf::Vector2f pos);
-  virtual unsigned int getCategory() const;
-  virtual sf::FloatRect getBoundingRect() const;
-  bool getStatus();
+    Pipe(Type type, const TextureHolder& textures, sf::Vector2f pos);
+    Pipe(Type type, const TextureHolder& textures, sf::Vector2f pos, bool dir);
+    virtual unsigned int getCategory() const;
+    virtual sf::FloatRect getBoundingRect() const;
+    bool getStatus();
 
 private:
-  virtual void drawCurrent(sf::RenderTarget &target, sf::RenderStates states) const;
+    virtual void updateCurrent(sf::Time dt);
+    virtual void drawCurrent(sf::RenderTarget &target, sf::RenderStates states) const;
 
 public:
-  bool isOut;
+    bool isOut;
 
 private:
-  sf::Sprite mSprite;
+    sf::Sprite mSprite;
+    Type mType;
 };
 
 #endif // PIPE_H

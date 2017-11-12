@@ -2,8 +2,8 @@
 #define UTILITY_H
 
 namespace sf {
-  class Sprite;
-  class Text;
+class Sprite;
+class Text;
 }
 
 void centerOrigin(sf::Sprite& sprite);

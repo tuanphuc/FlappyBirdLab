@@ -8,16 +8,16 @@
 class Background : public Entity
 {
 public:
-  Background(TextureHolder &textures);
-  void setPosition(sf::Vector2f pos);
+    Background(TextureHolder &textures);
+    void setPosition(sf::Vector2f pos);
 
 private:
-  virtual void updateCurrent(sf::Time dt);
-  virtual void drawCurrent(sf::RenderTarget &target, sf::RenderStates states) const;
+    virtual void updateCurrent(sf::Time dt);
+    virtual void drawCurrent(sf::RenderTarget &target, sf::RenderStates states) const;
 
 private:
-  sf::Sprite mSprite;
-  sf::Vector2f mPosition;
+    sf::Sprite mSprite;
+    sf::Vector2f mPosition;
 };
 
 #endif // BACKGROUND_H

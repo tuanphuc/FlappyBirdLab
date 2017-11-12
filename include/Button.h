@@ -16,13 +16,13 @@
 namespace GUI
 {
 
-  class Button : public Component
-  {
-  public:
+class Button : public Component
+{
+public:
     typedef std::shared_ptr<Button>		Ptr;
     typedef std::function<void()>		Callback;
 
-  public:
+public:
     Button(const FontHolder& fonts, const TextureHolder& textures);
 
     void					setCallback(Callback callback);
@@ -36,11 +36,11 @@ namespace GUI
     virtual void			handleEvent(const sf::Event& event);
 
 
-  private:
+private:
     virtual void			draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 
-  private:
+private:
     Callback				mCallback;
     sf::Texture             mNormalTexture;
     sf::Texture             mSelectedTexture;
@@ -48,7 +48,7 @@ namespace GUI
     sf::Sprite				mSprite;
     sf::Text				mText;
     bool					mIsToggle;
-  };
+};
 
 }
 

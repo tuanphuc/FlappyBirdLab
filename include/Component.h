@@ -8,17 +8,17 @@
 #include <memory>
 
 namespace sf {
-  class Event;
+class Event;
 }
 
 namespace GUI {
-  
-  class Component : public sf::Drawable, public sf::Transformable, private sf::NonCopyable
-  {
-  public:
+
+class Component : public sf::Drawable, public sf::Transformable, private sf::NonCopyable
+{
+public:
     typedef std::shared_ptr<Component> Ptr;
 
-  public:
+public:
     Component();
     virtual ~Component();
     virtual bool isSelectable() const = 0;
@@ -30,10 +30,10 @@ namespace GUI {
     virtual void deactivate();
     virtual void handleEvent(const sf::Event& event) = 0;
 
-  private:
+private:
     bool mIsSelected;
     bool mIsActive;
-  };
+};
 
 }
 

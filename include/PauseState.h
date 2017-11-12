@@ -9,16 +9,16 @@
 class PauseState : public State
 {
 public:
-  PauseState(StateStack& stack, Context context);
+    PauseState(StateStack& stack, Context context);
 
-  virtual void		draw();
-  virtual bool		update(sf::Time dt);
-  virtual bool		handleEvent(const sf::Event& event);
+    virtual void		draw();
+    virtual bool		update(sf::Time dt);
+    virtual bool		handleEvent(const sf::Event& event);
 
 private:
-  sf::Sprite          mBackgroundSprite;
-  sf::Text            mPauseText;
-  sf::Text            mInstructionText;
+    sf::Sprite          mBackgroundSprite;
+    sf::Text            mPauseText;
+    sf::Text            mInstructionText;
 };
 
 #endif // PAUSESTATE_H
