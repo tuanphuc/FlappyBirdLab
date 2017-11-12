@@ -1,17 +1,20 @@
 # FlappyBirdLab
 
-Another clone of FlappyBird game written in C++11 using SFML. This game is heavily inspired by the book SFML Game Development
-by Jan Haller, Henrik Vogelius Hansson, Artur Moreira. The codes for the book are in [this repo](https://github.com/SFML/SFML-Game-Development-Book). 
-
-The game has two modes:  
-  -  **Play mode**: where you can play flappy bird as normal:
+This project implements FlappyBird game in C++11 using SFML. The game design is inspired by the book [SFML Game Development](https://github.com/SFML/SFML-Game-Development-Book)
+by Jan Haller, Henrik Vogelius Hansson, Artur Moreira.
 
 ![play_mode](https://github.com/tuanphuc/FlappyBirdLab/blob/master/gifs/recorded_play.gif)
 
-  -  **Learning mode**: where you can enjoy the evolution of generations of birds trying to survive. The evolution is powered by genetic algrithm (inspired from https://github.com/xviniette/FlappyLearning):
+This project also acts as an environment to test **evolutionary algorithm** on birds. By using genetic algorithm:
 
 ![learning_mode](https://github.com/tuanphuc/FlappyBirdLab/blob/master/gifs/recorded_learning.gif)
 
+Birds can learn to flap perfectly:
+
+![result](https://github.com/tuanphuc/FlappyBirdLab/blob/master/gifs/recorded_result.gif)
+
+ The genetic algorithm is inspired by https://github.com/xviniette/FlappyLearning
+ 
 # Install
 
   -  First install SFML (https://github.com/SFML/SFML)
@@ -25,3 +28,5 @@ cmake ..
 make
 make install
 ```
+# Todo
+  -  Add more evolutionary strategies
