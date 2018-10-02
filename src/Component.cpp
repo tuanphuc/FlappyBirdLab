@@ -2,46 +2,20 @@
 
 namespace GUI {
 
-Component::Component()
-    : mIsSelected(false),
-      mIsActive(false)
-{
+Component::Component() : mIsSelected(false), mIsActive(false) {}
 
-}
+Component::~Component() {}
 
-Component::~Component()
-{
+bool Component::isSelected() const { return mIsSelected; }
 
-}
+void Component::select() { mIsSelected = true; }
 
-bool Component::isSelected() const
-{
-    return mIsSelected;
-}
+void Component::deselect() { mIsSelected = false; }
 
-void Component::select()
-{
-    mIsSelected = true;
-}
+bool Component::isActive() const { return mIsActive; }
 
-void Component::deselect()
-{
-    mIsSelected = false;
-}
+void Component::activate() { mIsActive = true; }
 
-bool Component::isActive() const
-{
-    return mIsActive;
-}
+void Component::deactivate() { mIsActive = false; }
 
-void Component::activate()
-{
-    mIsActive = true;
-}
-
-void Component::deactivate()
-{
-    mIsActive = false;
-}
-
-}
+} // namespace GUI

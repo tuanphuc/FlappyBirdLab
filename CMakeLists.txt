@@ -5,6 +5,13 @@ project(FlappyBirdLab)
 set (CMAKE_CXX_STANDARD 11)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Be nice and export compile commands by default, this is handy for clang-tidy
+# and for other tools.
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# We can use include() and find_package() for our scripts in there
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
 # Configuration options
 set(SFML_STATIC_LIBRARIES FALSE CACHE BOOL "Use static SFML librares")
 # General compiler options
@@ -47,3 +54,6 @@ endif()
 target_link_libraries(${PROJECT_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/assets DESTINATION ${CMAKE_BINARY_DIR}/bin/)
+
+include(cleanCppExtensions)
+addMiscTargets()

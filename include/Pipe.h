@@ -5,31 +5,31 @@
 #include "ResourceIdentifiers.h"
 #include "SFML/Graphics/Sprite.hpp"
 
-class Pipe : public Entity
-{
+class Pipe : public Entity {
 public:
-    enum Type
-    {
-        PipeTop,
-        PipeBottom,
-    };
+  enum Type {
+    PipeTop,
+    PipeBottom,
+  };
 
 public:
-    Pipe(Type type, const TextureHolder& textures, sf::Vector2f pos, sf::Vector2f velocity, bool dir);
-    virtual unsigned int getCategory() const;
-    virtual sf::FloatRect getBoundingRect() const;
-    bool getStatus();
+  Pipe(Type type, const TextureHolder &textures, sf::Vector2f pos,
+       sf::Vector2f velocity, bool dir);
+  virtual unsigned int getCategory() const;
+  virtual sf::FloatRect getBoundingRect() const;
+  bool getStatus();
 
 private:
-    virtual void updateCurrent(sf::Time dt);
-    virtual void drawCurrent(sf::RenderTarget &target, sf::RenderStates states) const;
+  virtual void updateCurrent(sf::Time dt);
+  virtual void drawCurrent(sf::RenderTarget &target,
+                           sf::RenderStates states) const;
 
 public:
-    bool isOut;
+  bool isOut;
 
 private:
-    sf::Sprite mSprite;
-    Type mType;
+  sf::Sprite mSprite;
+  Type mType;
 };
 
 #endif // PIPE_H
