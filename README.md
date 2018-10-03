@@ -1,4 +1,5 @@
 # FlappyBirdLab
+[![Build Status](https://travis-ci.org/tuanphuc/FlappyBirdLab.svg?branch=master)](https://travis-ci.org/tuanphuc/FlappyBirdLab)
 
 This project implements FlappyBird game in C++11 using SFML. The game design is inspired by the book [SFML Game Development](https://github.com/SFML/SFML-Game-Development-Book)
 by Jan Haller, Henrik Vogelius Hansson, Artur Moreira.
